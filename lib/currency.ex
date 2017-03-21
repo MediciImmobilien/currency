@@ -10,6 +10,6 @@ defmodule Currency do
 		|> Float.round(2)
 		|> Money.parse(:EUR)
 		new_amount
-		|> Money.to_string
+		
 	end
 end
