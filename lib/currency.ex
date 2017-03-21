@@ -8,6 +8,7 @@ defmodule Currency do
 	def from_usd_to_eur(%Money{amount: amount, currency: :USD}) do
 		{:ok,new_amount} = amount * exchange_rate("USD", "EUR")
 		|> Float.round(2)
+		|> div(100)
 		|> Money.parse(:EUR)
 		new_amount
 		
