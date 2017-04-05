@@ -2,7 +2,7 @@ defmodule CurrencyTest do
   use ExUnit.Case
   doctest Currency
 
-  test "the truth" do
-    assert 1 + 1 == 2
+  test from usd to eur do
+    assert from_usd_to_eur(%{amount: amount, currency: :USD})
   end
 end
