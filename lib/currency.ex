@@ -2,7 +2,7 @@ defmodule Currency do
 	def exchange_rate(currency_from, currency_to) do
 		{:ok, %{body: body}} = HTTPoison.get("http://api.fixer.io/latest?base=USD&symbols=EUR")
 		%{"rates" => %{"EUR" => exchange_rate}} = body |> Poison.decode!
-		 exchange_rate
+		 exchange_rate / 100 
 	end
 	
 	def from_usd_to_eur(%{amount: amount, currency: :USD}) do
