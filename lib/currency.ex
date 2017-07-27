@@ -1,5 +1,6 @@
 defmodule Currency do
 	use GenServer
+	use Application
 	
 	def start(_type, _args), do: {:ok, pid} = GenServer.start_link(Currency, {"USD", "EUR"}, name: Currencies)
 
