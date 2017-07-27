@@ -27,8 +27,8 @@ defmodule Currency do
 	
 	def state_up_to_date?(:lt, {rate,from,to, date}), do: update_rate(from, to)
 	
-	def exchange(amount,{rate,_,_,_}) do 
-  		{:ok,new_amount} = amount * (rate/100)|> Float.round(2)|> Money.parse(:EUR)
+	def exchange(%{amount: amount, currency: :USD},{rate,_,_,_}) do 
+		{:ok,new_amount} = amount * (rate/100)|> Float.round(2)|> Money.parse(:EUR)
 		new_amount
 	end
 end
