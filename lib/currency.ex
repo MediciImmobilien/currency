@@ -1,9 +1,9 @@
 defmodule Currency do
 	use GenServer
 	
-	def start(_type, _args), do: {:ok, pid} = GenServer.start_link(Currency, {"USD", "EUR"})
+	def start(_type, _args), do: {:ok, pid} = GenServer.start_link(Currency, {"USD", "EUR"}, name: Currencies)
 
-	def from_usd_to_eur, do: GenServer.call(pid, %{amount: 100, currency: :USD})
+	def from_usd_to_eur, do: GenServer.call(Currencies, %{amount: 100, currency: :USD})
 
 	def init({from, to}), do: {:ok, update_rate(from, to)}
 	
