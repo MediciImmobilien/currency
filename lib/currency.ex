@@ -8,7 +8,7 @@ defmodule Currency do
 
 	def init({from, to}), do: {:ok, update_rate(from, to)}
 	
-	def url(from, to), do: "http://api.fixer.io/latest?base=#{from}&symbols=#{to}"
+	def url(from, to), do: "https://api.fixer.io/latest?base=#{from}&symbols=#{to}"
 	
 	def update_rate(from, to), do: {url(from, to) |> request, from, to , Date.utc_today}
 	
