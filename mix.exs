@@ -15,7 +15,7 @@ defmodule Currency.Mixfile do
  	end
 
 	defp deps do
-    	[{:httpoison, "~> 0.13.0"},
+    	[{:httpoison, "~> 0.11.0"},
 		{:money, "~> 1.2"},
 	 	{:poison, "~> 3.1",override: :true}]
   	end
